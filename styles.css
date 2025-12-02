@@ -7,6 +7,8 @@
   --accent: #10b981;
   --border: #e2e8f0;
   --shadow: 0 10px 40px rgba(15, 23, 42, 0.12);
+  --cursor-x: 50%;
+  --cursor-y: 50%;
 }
 
 :root.dark {
@@ -129,6 +131,20 @@ a {
   align-items: center;
   gap: 2rem;
   padding-top: 7rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle at var(--cursor-x) var(--cursor-y), color-mix(in srgb, var(--primary) 30%, transparent), transparent 30%),
+    radial-gradient(circle at calc(var(--cursor-x) + 8%) calc(var(--cursor-y) - 10%), color-mix(in srgb, var(--accent) 25%, transparent), transparent 35%);
+  filter: blur(60px);
+  opacity: 0.55;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 .hero__title {
@@ -159,6 +175,16 @@ a {
   min-height: 280px;
 }
 
+.hero__visual::after {
+  content: '';
+  position: absolute;
+  inset: 18% 12% auto;
+  height: 24px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, transparent), transparent);
+  filter: blur(24px);
+  opacity: 0.7;
+}
+
 .blob {
   position: absolute;
   inset: 0;
@@ -168,6 +194,8 @@ a {
   filter: blur(20px);
   border-radius: 24px;
   opacity: 0.8;
+  transform: translate(calc(var(--cursor-x) / 50 - 10px), calc(var(--cursor-y) / 50 - 10px));
+  transition: transform 0.4s ease;
 }
 
 .card {
@@ -213,12 +241,29 @@ a {
   background: var(--bg-elevated);
   border-radius: 14px;
   box-shadow: var(--shadow);
-  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .tech-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 18px 50px rgba(15, 23, 42, 0.15);
+  border-color: color-mix(in srgb, var(--primary) 45%, var(--border));
+}
+
+.tech-card::after {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at var(--cursor-x) var(--cursor-y), color-mix(in srgb, var(--accent) 50%, transparent), transparent 35%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.tech-card:hover::after {
+  opacity: 0.35;
 }
 
 .skills {
@@ -249,12 +294,15 @@ a {
   height: 100%;
   background: linear-gradient(90deg, var(--primary), var(--accent));
   border-radius: 999px;
+  width: 0;
+  transition: width 1s ease;
 }
 
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
+  perspective: 1200px;
 }
 
 .project-card {
@@ -265,12 +313,14 @@ a {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  transform-style: preserve-3d;
 }
 
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 18px 60px rgba(15, 23, 42, 0.18);
+  filter: brightness(1.03);
 }
 
 .project-card__image {
@@ -385,6 +435,8 @@ a {
   border: 1px solid transparent;
   font-weight: 700;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
 }
 
@@ -392,6 +444,16 @@ a {
   background: linear-gradient(120deg, var(--primary), color-mix(in srgb, var(--primary) 60%, var(--accent)));
   color: #fff;
   box-shadow: var(--shadow);
+}
+
+.btn.primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(255, 255, 255, 0.28), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .btn.ghost {
@@ -403,6 +465,10 @@ a {
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
+}
+
+.btn:hover::after {
+  opacity: 1;
 }
 
 .tag {

@@ -3,6 +3,9 @@ const navLinks = document.querySelectorAll('.nav__link');
 const menuToggle = document.getElementById('menuToggle');
 const themeToggle = document.getElementById('themeToggle');
 const root = document.documentElement;
+const skillSection = document.getElementById('habilidades');
+const skillBars = document.querySelectorAll('.skill__bar span');
+const tiltCards = document.querySelectorAll('.project-card, .tech-card');
 
 // Scroll suave y highlighting de sección
 const sections = document.querySelectorAll('section');
@@ -24,6 +27,41 @@ const observer = new IntersectionObserver(
 
 sections.forEach((section) => observer.observe(section));
 
+// Animación de barras de habilidades
+if (skillSection) {
+  const skillObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        skillBars.forEach((bar) => {
+          const progress = bar.dataset.progress ?? 0;
+          bar.style.width = `${progress}%`;
+        });
+        skillObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.45 }
+  );
+  skillObserver.observe(skillSection);
+}
+
+// Efecto tilt interactivo en tarjetas
+const tiltStrength = 7;
+tiltCards.forEach((card) => {
+  card.addEventListener('pointermove', (event) => {
+    const rect = card.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = (event.clientY - rect.top) / rect.height;
+    const rotateX = (0.5 - y) * tiltStrength;
+    const rotateY = (x - 0.5) * tiltStrength;
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+  });
+
+  card.addEventListener('pointerleave', () => {
+    card.style.transform = '';
+  });
+});
+
 // Menú móvil
 menuToggle.addEventListener('click', () => {
   nav.classList.toggle('open');
@@ -34,6 +72,14 @@ navLinks.forEach((link) =>
     nav.classList.remove('open');
   })
 );
+
+// Gradiente interactivo con el cursor
+window.addEventListener('pointermove', (event) => {
+  const x = (event.clientX / window.innerWidth) * 100;
+  const y = (event.clientY / window.innerHeight) * 100;
+  root.style.setProperty('--cursor-x', `${x}%`);
+  root.style.setProperty('--cursor-y', `${y}%`);
+});
 
 // Tema claro/oscuro
 const storedTheme = localStorage.getItem('theme');
