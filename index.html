@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Tu Nombre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">FM</div>
+    <nav class="nav" id="nav">
+      <a href="#inicio" class="nav__link active">Inicio</a>
+      <a href="#sobre" class="nav__link">Sobre mí</a>
+      <a href="#habilidades" class="nav__link">Habilidades</a>
+      <a href="#proyectos" class="nav__link">Proyectos</a>
+      <a href="#contacto" class="nav__link">Contacto</a>
+    </nav>
+    <div class="actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+        <span class="theme-toggle__icon">🌙</span>
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero section reveal">
+      <div class="hero__content">
+        <p class="eyebrow">Hola, soy</p>
+        <h1 class="hero__title">Tu Nombre</h1>
+        <p class="hero__subtitle">Desarrollador Frontend & UI Enthusiast</p>
+        <div class="hero__cta">
+          <a class="btn primary" href="#contacto">Contáctame</a>
+          <a class="btn ghost" href="#proyectos">Ver proyectos</a>
+        </div>
+        <div class="hero__tags">
+          <span class="tag">React</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">CSS Animations</span>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="blob"></div>
+        <div class="card floating">
+          <p>+5 años creando experiencias web</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section reveal">
+      <div class="section__header">
+        <p class="eyebrow">Sobre mí</p>
+        <h2>¿Quién soy?</h2>
+      </div>
+      <div class="about">
+        <p>
+          Soy un desarrollador apasionado por construir interfaces limpias y accesibles. Me gusta colaborar
+          con equipos multidisciplinares y traducir ideas en experiencias digitales que se sientan fluidas y modernas.
+        </p>
+        <div class="tech-grid">
+          <div class="tech-card">
+            <h3>Frontend</h3>
+            <p>JavaScript, TypeScript, React, Next.js, Vite</p>
+          </div>
+          <div class="tech-card">
+            <h3>Estilos</h3>
+            <p>CSS, Sass, Tailwind, Styled Components, Motion</p>
+          </div>
+          <div class="tech-card">
+            <h3>Colaboración</h3>
+            <p>UI Kits, Figma, Git, testing visual y funcional</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="habilidades" class="section reveal">
+      <div class="section__header">
+        <p class="eyebrow">Habilidades</p>
+        <h2>Lo que utilizo</h2>
+      </div>
+      <div class="skills">
+        <div class="skill">
+          <div class="skill__info">
+            <span>JavaScript / TypeScript</span>
+            <span class="skill__value">90%</span>
+          </div>
+          <div class="skill__bar"><span style="width: 90%"></span></div>
+        </div>
+        <div class="skill">
+          <div class="skill__info">
+            <span>React / Next.js</span>
+            <span class="skill__value">85%</span>
+          </div>
+          <div class="skill__bar"><span style="width: 85%"></span></div>
+        </div>
+        <div class="skill">
+          <div class="skill__info">
+            <span>HTML & Accesibilidad</span>
+            <span class="skill__value">95%</span>
+          </div>
+          <div class="skill__bar"><span style="width: 95%"></span></div>
+        </div>
+        <div class="skill">
+          <div class="skill__info">
+            <span>CSS / Animaciones</span>
+            <span class="skill__value">92%</span>
+          </div>
+          <div class="skill__bar"><span style="width: 92%"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos" class="section reveal">
+      <div class="section__header">
+        <p class="eyebrow">Proyectos</p>
+        <h2>Selección destacada</h2>
+      </div>
+      <div class="projects">
+        <article class="project-card">
+          <div class="project-card__image" aria-hidden="true"></div>
+          <div class="project-card__content">
+            <h3>Dashboard Analítico</h3>
+            <p>Dashboard interactivo con gráficos y paneles configurables para equipos de producto.</p>
+            <div class="project-card__tags">
+              <span class="tag">React</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">Recharts</span>
+            </div>
+            <div class="project-card__links">
+              <a href="#" class="btn ghost">Demo</a>
+              <a href="#" class="btn primary">Código</a>
+            </div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-card__image project-card__image--alt" aria-hidden="true"></div>
+          <div class="project-card__content">
+            <h3>Landing SaaS</h3>
+            <p>Página de marketing para un SaaS con animaciones micro-interactivas y conversión optimizada.</p>
+            <div class="project-card__tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Framer Motion</span>
+            </div>
+            <div class="project-card__links">
+              <a href="#" class="btn ghost">Demo</a>
+              <a href="#" class="btn primary">Código</a>
+            </div>
+          </div>
+        </article>
+        <article class="project-card">
+          <div class="project-card__image project-card__image--accent" aria-hidden="true"></div>
+          <div class="project-card__content">
+            <h3>App de Tareas</h3>
+            <p>Aplicación web de productividad con filtros, temas y persistencia en localStorage.</p>
+            <div class="project-card__tags">
+              <span class="tag">Vue</span>
+              <span class="tag">Pinia</span>
+              <span class="tag">CSS</span>
+            </div>
+            <div class="project-card__links">
+              <a href="#" class="btn ghost">Demo</a>
+              <a href="#" class="btn primary">Código</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contacto" class="section reveal">
+      <div class="section__header">
+        <p class="eyebrow">Contacto</p>
+        <h2>Hablemos</h2>
+      </div>
+      <div class="contact">
+        <div class="contact__info">
+          <p>Si quieres colaborar, escríbeme y responderé lo antes posible.</p>
+          <div class="contact__links">
+            <a href="mailto:email@ejemplo.com" class="link">email@ejemplo.com</a>
+            <a href="https://github.com/usuario" class="link" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/usuario" class="link" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+        <form class="contact__form">
+          <label>
+            Nombre
+            <input type="text" name="nombre" placeholder="Tu nombre" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="tu@email.com" required />
+          </label>
+          <label>
+            Mensaje
+            <textarea name="mensaje" rows="4" placeholder="¿En qué puedo ayudarte?" required></textarea>
+          </label>
+          <button type="submit" class="btn primary">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2024 Tu Nombre. Todos los derechos reservados.</p>
+    <div class="footer__social">
+      <a href="https://github.com/usuario" aria-label="GitHub">GitHub</a>
+      <a href="https://linkedin.com/in/usuario" aria-label="LinkedIn">LinkedIn</a>
+      <a href="#inicio" class="back-to-top">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
